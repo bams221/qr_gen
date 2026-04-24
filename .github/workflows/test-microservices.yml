@@ -1,0 +1,30 @@
+name: Test microservices
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/test-microservices.yml"
+      - "docker-compose.yml"
+      - "gateway/**"
+      - "qr-service/**"
+
+jobs:
+  gateway-image-build:
+    name: Gateway image build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Build gateway image
+        run: docker build -t gateway-ci ./gateway
+
+  qr-service-image-build:
+    name: QR service image build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Build QR service image
+        run: docker build -t qr-service-ci ./qr-service
