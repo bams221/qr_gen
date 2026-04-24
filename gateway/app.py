@@ -123,7 +123,7 @@ def consume_results_forever():
                     "status": payload["status"],
                     "updated_at": now,
                 }
-                if payload["status"] == "SUCCESS":
+                if payload["status"] == "SUCCESSS":
                     task_state["image_base64"] = payload["image_base64"]
                     _increment_processed_qr_codes()
                 else:
