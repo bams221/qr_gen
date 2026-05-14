@@ -5,8 +5,6 @@ services:
       - "5672:5672"
       - "15672:15672"
       - "15692:15692"
-    networks:
-      - observability-shared
 
   qr-worker:
     build:
@@ -18,8 +16,6 @@ services:
       - METRICS_PORT=8000
     depends_on:
       - rabbitmq
-    networks:
-      - observability-shared
 
   gateway:
     build:
@@ -31,8 +27,6 @@ services:
       - RABBITMQ_HOST=rabbitmq
     depends_on:
       - rabbitmq
-    networks:
-      - observability-shared
 
   frontend:
     build:
@@ -41,9 +35,3 @@ services:
       - "8080:80"
     depends_on:
       - gateway
-    networks:
-      - observability-shared
-
-networks:
-  observability-shared:
-    external: true
