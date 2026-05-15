@@ -1,7 +1,7 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-This repo contains a small QR generation system split by deployment unit. `frontend/` holds the static Nginx-served UI (`index.html`, `script.js`, `style.css`). `gateway/` contains the Flask API gateway and its tests in `test_app.py`. `qr-service/` contains the QR worker and its tests. Root-level `docker-compose.yml` wires the services together, `.github/workflows/` contains CI, and `sonarqube/` contains observability-related compose config.
+This repo contains a small QR generation system split by deployment unit. `frontend/` holds the static Nginx-served UI (`index.html`, `script.js`, `style.css`). `gateway/` contains the Flask API gateway and its tests in `test_app.py`. `qr-service/` contains the QR worker and its tests. Root-level `docker-compose.yml` wires the services together
 
 ## Build, Test, and Development Commands
 Use Docker first, since the images run tests during build.
